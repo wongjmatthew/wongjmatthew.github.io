@@ -190,7 +190,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff9600;}
     align-items: center;
     justify-content: center;
     position:relative;
-    background-image:url("../assets/images/about/welcome-banner.JPG")no-repeat;
+    background-image:url(../assets/images/about/welcome-banner.JPG)no-repeat;
     background-size:cover;
     background-position: center;
     height:890px;
