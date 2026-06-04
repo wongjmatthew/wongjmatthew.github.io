@@ -1,278 +1,667 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matthew Wong | Paid Media & Data Analytics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Modern, dynamic, data-focused look */
-        :root {
-            --primary: #2563eb;
-            --primary-hover: #1d4ed8;
-            --primary-light: #eff6ff;
-            --dark: #0f172a;
-            --dark-secondary: #1e293b;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --card-bg: #ffffff;
-        }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #334155;
-            background-color: var(--light);
-            line-height: 1.7;
-        }
-        .container { max-width: 1050px; margin: 0 auto; padding: 0 25px; }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate {
-            opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matthew Wong — Paid Media & Data Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Figtree:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+    --n950:   #040c1a;
+    --n900:   #0b1c36;
+    --n800:   #0f2d52;
+    --n700:   #164375;
+    --n600:   #1a5298;
+    --n500:   #2563eb;
+    --n400:   #3b82f6;
+    --n300:   #60a5fa;
+    --n200:   #93c5fd;
+    --n100:   #bfdbfe;
+    --n50:    #eff6ff;
+    --n20:    #f5f9ff;
+    --white:  #ffffff;
+    --text:   #0f1f3d;
+    --text2:  #455674;
+    --text3:  #8099bb;
+    --border: #d8e6f7;
+    --sw:     272px;
+    --df:    'Cormorant Garamond', Georgia, serif;
+    --bf:    'Figtree', system-ui, sans-serif;
+    --mf:    'JetBrains Mono', monospace;
+}
 
-        /* Header & Profile Image */
-        header { 
-            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-secondary) 100%);
-            color: white; 
-            padding: 80px 0 60px 0; 
-            text-align: center; 
-            border-bottom: 4px solid var(--primary);
-        }
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            /* This line frames the face instead of the body */
-            object-position: center top; 
-            border: 4px solid white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            margin-bottom: 25px;
-            background-color: var(--gray);
-            transition: transform 0.3s ease;
-        }
-        .profile-img:hover {
-            transform: scale(1.05);
-        }
-        header h1 { margin: 0 0 10px 0; font-size: 3.5rem; font-weight: 700; letter-spacing: -1px; }
-        header p { margin: 0; font-size: 1.25rem; color: #cbd5e1; font-weight: 300;}
-        
-        section { padding: 60px 0; }
-        h2 { 
-            color: var(--dark); 
-            font-size: 2rem;
-            border-bottom: 3px solid var(--primary); 
-            padding-bottom: 8px; 
-            display: inline-block; 
-            margin-top: 0;
-            margin-bottom: 25px;
-        }
-        
-        /* Grids & Tags */
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 12px;}
-        .skill-tag { 
-            background: var(--primary-light); 
-            color: var(--primary);
-            padding: 8px 18px; 
-            border-radius: 30px; 
-            font-weight: 600; 
-            font-size: 0.95rem; 
-            transition: all 0.2s ease;
-        }
-        .skill-tag:hover { 
-            background: var(--primary); 
-            color: white; 
-            transform: translateY(-2px); 
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
-        }
-        
-        /* Case Cards */
-        .case-studies { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 10px; }
-        .case-card { 
-            background: var(--card-bg); 
-            padding: 30px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.05); 
-            border-top: 4px solid transparent; 
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
-            display: flex;
-            flex-direction: column;
-        }
-        .case-card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-            border-top: 4px solid var(--primary);
-        }
-        .case-card h3 { margin-top: 0; margin-bottom: 8px; color: var(--dark); font-size: 1.4rem;}
-        .case-card h4 { margin: 0 0 15px 0; color: var(--primary); font-weight: 600; font-size: 1rem; }
-        .case-card p { flex-grow: 1; }
-        .case-card ul { padding-left: 20px; margin-top: 10px; margin-bottom: 0; }
-        .case-card li { margin-bottom: 10px; font-size: 0.95rem; }
-        
-        /* Buttons */
-        .contact-links { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
-        .btn { 
-            background: var(--primary); 
-            color: white; 
-            padding: 12px 24px; 
-            text-decoration: none; 
-            border-radius: 8px; 
-            font-weight: 600; 
-            transition: all 0.2s ease; 
-            display: inline-block; 
-            margin-top: 15px; 
-            font-size: 1rem;
-            text-align: center;
-        }
-        .btn:hover { 
-            background: var(--primary-hover); 
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-            transform: translateY(-1px);
-        }
-        .btn-outline { 
-            background: transparent; 
-            border: 2px solid var(--primary); 
-            color: var(--primary); 
-        }
-        .btn-outline:hover { 
-            background: var(--primary-light); 
-            color: var(--primary-hover); 
-            border-color: var(--primary-hover);
-            box-shadow: none;
-        }
-        
-        footer { background: var(--dark); color: #cbd5e1; text-align: center; padding: 30px 0; font-size: 0.95rem;}
-    </style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--bf); background: var(--n20); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+
+/* ──────────────── SIDEBAR ──────────────── */
+.sidebar {
+    position: fixed; top: 0; left: 0; bottom: 0; width: var(--sw); z-index: 200;
+    background: var(--n900);
+    display: flex; flex-direction: column;
+    border-right: 1px solid rgba(255,255,255,0.06);
+}
+.sb-top {
+    padding: 36px 26px 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    text-align: center;
+}
+
+/* Photo */
+.photo-ring {
+    width: 100px; height: 100px; border-radius: 50%;
+    margin: 0 auto 18px;
+}
+#profile-photo {
+    width: 100%; height: 100%; border-radius: 50%;
+    object-fit: cover; object-position: center top;
+    border: 2px solid var(--n600);
+    display: block;
+}
+
+.sb-name {
+    font-family: var(--df); font-size: 1.45rem; font-weight: 600;
+    color: var(--white); line-height: 1.15; margin-bottom: 5px;
+}
+.sb-title { font-size: 0.74rem; color: var(--n200); line-height: 1.55; font-weight: 300; }
+
+/* Nav */
+.sb-nav { flex: 1; padding: 22px 16px; display: flex; flex-direction: column; gap: 2px; }
+.nav-a {
+    display: flex; align-items: center; gap: 11px;
+    padding: 9px 12px; border-radius: 7px;
+    text-decoration: none; color: var(--n200);
+    font-size: 0.84rem; font-weight: 500; letter-spacing: 0.01em;
+    transition: all 0.16s;
+}
+.nav-a:hover, .nav-a.on { background: rgba(59,130,246,0.15); color: var(--white); }
+.nav-pip {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--n600); flex-shrink: 0; transition: background 0.16s;
+}
+.nav-a:hover .nav-pip, .nav-a.on .nav-pip { background: var(--n300); }
+
+/* Sidebar bottom */
+.sb-bot {
+    padding: 18px 24px 28px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex; flex-direction: column; gap: 8px;
+}
+.sb-clink {
+    display: flex; align-items: center; gap: 9px;
+}
+.sb-clink svg { width: 13px; height: 13px; stroke: var(--n400); fill: none; stroke-width: 1.5; flex-shrink: 0; }
+.sb-clink a, .sb-clink span { font-size: 0.76rem; color: var(--n200); text-decoration: none; transition: color 0.14s; word-break: break-all; }
+.sb-clink a:hover { color: var(--n300); }
+
+/* ──────────────── MAIN ──────────────── */
+.main { margin-left: var(--sw); }
+
+/* ──────────────── SECTIONS ──────────────── */
+.sec { padding: 68px 56px; border-bottom: 1px solid var(--border); }
+.sec.alt { background: var(--white); }
+.sec:last-of-type { border-bottom: none; }
+
+.ey { /* eyebrow */
+    font-family: var(--mf); font-size: 0.7rem; color: var(--n500);
+    text-transform: uppercase; letter-spacing: 0.16em; display: block; margin-bottom: 7px;
+}
+.rule { width: 36px; height: 2px; background: var(--n400); margin-bottom: 32px; }
+.sh { /* section heading */
+    font-family: var(--df); font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+    color: var(--n900); line-height: 1.1; font-weight: 600; margin-bottom: 40px;
+}
+
+/* ──────────────── INTRO ──────────────── */
+.intro { padding: 76px 56px 68px; background: var(--white); border-bottom: 1px solid var(--border); }
+.intro-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--n50); border: 1px solid var(--n100);
+    color: var(--n600); font-family: var(--mf); font-size: 0.72rem;
+    padding: 6px 14px; border-radius: 30px; margin-bottom: 22px;
+    letter-spacing: 0.06em; font-weight: 500;
+}
+.intro-h1 {
+    font-family: var(--df); font-size: clamp(2.6rem, 5vw, 4rem);
+    color: var(--n900); line-height: 1.07; letter-spacing: -0.01em;
+    font-weight: 600; margin-bottom: 20px;
+}
+.intro-h1 em { color: var(--n500); font-style: italic; }
+.intro-sub { font-size: 1.06rem; color: var(--text2); max-width: 580px; margin-bottom: 44px; font-weight: 300; line-height: 1.82; }
+
+.stats-bar {
+    display: flex; border: 1px solid var(--border); border-radius: 10px;
+    overflow: hidden; max-width: 720px;
+}
+.stat-cell { flex: 1; padding: 20px 22px; border-right: 1px solid var(--border); }
+.stat-cell:last-child { border-right: none; }
+.stat-n {
+    font-family: var(--mf); font-size: 1.65rem; font-weight: 500;
+    color: var(--n700); display: block; line-height: 1; margin-bottom: 6px;
+}
+.stat-n.sm {
+    font-family: var(--df); font-size: 1.05rem; font-weight: 600; line-height: 1.2;
+}
+.stat-l { font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* ──────────────── ABOUT ──────────────── */
+.about-grid { display: grid; grid-template-columns: 1fr 310px; gap: 52px; align-items: start; }
+.about-body p { color: var(--text2); margin-bottom: 17px; font-size: 1rem; line-height: 1.82; }
+.about-body p:last-child { margin-bottom: 0; }
+
+.edu-card { background: var(--n50); border: 1px solid var(--n100); border-radius: 10px; padding: 26px; }
+.edu-tag-sm {
+    display: inline-block; background: var(--n900); color: var(--n100);
+    font-size: 0.7rem; font-weight: 600; padding: 4px 11px;
+    border-radius: 30px; margin-bottom: 14px; letter-spacing: 0.03em;
+}
+.edu-uni { font-family: var(--df); font-size: 1.32rem; color: var(--n900); font-weight: 600; margin-bottom: 3px; }
+.edu-deg { font-size: 0.84rem; color: var(--text2); margin-bottom: 10px; }
+.edu-hon {
+    display: inline-block; background: var(--n100); border: 1px solid var(--n200);
+    color: var(--n700); font-size: 0.72rem; font-weight: 600;
+    padding: 4px 11px; border-radius: 30px; margin-bottom: 18px;
+}
+.edu-div { height: 1px; background: var(--border); margin: 14px 0; }
+.edu-row { display: flex; gap: 10px; margin-bottom: 7px; }
+.edu-row:last-child { margin-bottom: 0; }
+.edu-k { font-size: 0.75rem; color: var(--n600); font-weight: 600; min-width: 50px; }
+.edu-v { font-size: 0.78rem; color: var(--text2); line-height: 1.45; }
+
+/* ──────────────── SKILLS ──────────────── */
+.skill-cols { display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; }
+.skill-col h3 {
+    font-family: var(--mf); font-size: 0.68rem; color: var(--n600);
+    text-transform: uppercase; letter-spacing: 0.13em;
+    margin-bottom: 14px; padding-bottom: 9px; border-bottom: 1px solid var(--border);
+}
+.tagset { display: flex; flex-wrap: wrap; gap: 7px; }
+.tag {
+    background: var(--white); border: 1px solid var(--n100);
+    color: var(--n700); font-size: 0.8rem; font-weight: 500;
+    padding: 5px 13px; border-radius: 4px; transition: all 0.15s;
+}
+.tag:hover { background: var(--n50); border-color: var(--n300); color: var(--n800); }
+
+.cert-sec-label { display: block; font-family: var(--mf); font-size: 0.68rem; color: var(--n600); text-transform: uppercase; letter-spacing: 0.13em; margin: 44px 0 7px; }
+.cert-rule { width: 36px; height: 2px; background: var(--n300); margin-bottom: 20px; }
+.certs { display: grid; grid-template-columns: repeat(auto-fill, minmax(196px,1fr)); gap: 10px; }
+.cert {
+    background: var(--white); border: 1px solid var(--n100); border-radius: 7px;
+    padding: 12px 15px; display: flex; align-items: center; gap: 10px; transition: all 0.16s;
+}
+.cert:hover { border-color: var(--n300); background: var(--n50); }
+.cert-pip { width: 6px; height: 6px; border-radius: 50%; background: var(--n400); flex-shrink: 0; }
+.cert-txt { font-size: 0.8rem; color: var(--text2); line-height: 1.4; }
+
+/* ──────────────── EXPERIENCE ──────────────── */
+.exp-items { display: flex; flex-direction: column; gap: 0; }
+.exp-row {
+    display: grid; grid-template-columns: 190px 1fr; gap: 44px;
+    padding: 40px 0; border-bottom: 1px solid var(--border);
+}
+.exp-row:first-child { padding-top: 0; }
+.exp-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+.exp-when { font-family: var(--mf); font-size: 0.72rem; color: var(--n500); display: block; margin-bottom: 6px; letter-spacing: 0.04em; }
+.exp-co { font-size: 0.86rem; color: var(--text2); margin-bottom: 2px; }
+.exp-loc { font-size: 0.76rem; color: var(--text3); margin-bottom: 10px; }
+.curr-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--n50); border: 1px solid var(--n100); color: var(--n600);
+    font-size: 0.68rem; font-weight: 600; padding: 3px 9px; border-radius: 30px; letter-spacing: 0.04em;
+}
+.curr-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--n400); display: inline-block; }
+
+.exp-role { font-family: var(--df); font-size: 1.42rem; color: var(--n900); font-weight: 600; margin-bottom: 3px; line-height: 1.2; }
+.exp-type { font-size: 0.82rem; color: var(--n500); font-weight: 500; margin-bottom: 16px; }
+.exp-ul { list-style: none; padding: 0; }
+.exp-ul li {
+    color: var(--text2); font-size: 0.92rem; padding: 7px 0 7px 16px;
+    position: relative; border-bottom: 1px solid var(--border); line-height: 1.65;
+}
+.exp-ul li:last-child { border-bottom: none; }
+.exp-ul li::before {
+    content: ''; position: absolute; left: 0; top: 14px;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--n300);
+}
+.exp-ul li strong { color: var(--n800); font-weight: 600; }
+.kpis { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+.kpi {
+    background: var(--n50); border: 1px solid var(--n100); color: var(--n700);
+    font-family: var(--mf); font-size: 0.71rem; font-weight: 500;
+    padding: 4px 11px; border-radius: 30px;
+}
+
+/* ──────────────── PROJECTS ──────────────── */
+.proj-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+.proj-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+    padding: 28px; display: flex; flex-direction: column;
+    position: relative; overflow: hidden; transition: all 0.22s;
+}
+.proj-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--n500); transform: scaleX(0); transform-origin: left; transition: transform 0.22s;
+}
+.proj-card:hover { border-color: var(--n200); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(37,99,235,0.08); }
+.proj-card:hover::before { transform: scaleX(1); }
+.proj-num { font-family: var(--mf); font-size: 0.68rem; color: var(--n400); margin-bottom: 11px; letter-spacing: 0.1em; }
+.proj-card h3 { font-family: var(--df); font-size: 1.16rem; color: var(--n900); font-weight: 600; margin-bottom: 9px; line-height: 1.25; }
+.proj-card p { color: var(--text2); font-size: 0.87rem; flex-grow: 1; margin-bottom: 18px; line-height: 1.65; }
+.proj-link {
+    color: var(--n500); text-decoration: none; font-size: 0.78rem; font-weight: 600;
+    font-family: var(--mf); display: inline-flex; align-items: center; gap: 5px; transition: gap 0.15s;
+}
+.proj-link:hover { color: var(--n700); gap: 11px; }
+.proj-link::after { content: '→'; }
+
+/* ──────────────── LEADERSHIP ──────────────── */
+.lead-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+    padding: 28px 32px; display: grid; grid-template-columns: 52px 1fr; gap: 22px; align-items: center;
+}
+.lead-ico {
+    width: 52px; height: 52px; background: var(--n50); border: 1px solid var(--n100);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+}
+.lead-role { font-family: var(--df); font-size: 1.2rem; color: var(--n900); font-weight: 600; margin-bottom: 2px; }
+.lead-org { font-size: 0.84rem; color: var(--n500); font-weight: 500; margin-bottom: 6px; }
+.lead-desc { font-size: 0.86rem; color: var(--text2); line-height: 1.65; }
+
+/* ──────────────── CONTACT ──────────────── */
+.contact-sec {
+    background: var(--n900); padding: 76px 56px;
+}
+.contact-sec .ey { color: var(--n300); }
+.contact-sec .rule { background: var(--n500); }
+.contact-sec .sh { color: var(--white); margin-bottom: 14px; }
+.contact-intro { color: var(--n200); font-size: 0.98rem; max-width: 500px; margin-bottom: 40px; font-weight: 300; line-height: 1.8; }
+.contact-cards { display: flex; flex-wrap: wrap; gap: 13px; }
+.ccard {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 9px; padding: 17px 20px; text-decoration: none;
+    transition: all 0.18s; display: flex; flex-direction: column; gap: 5px; min-width: 195px;
+}
+.ccard:hover { background: rgba(59,130,246,0.18); border-color: var(--n400); }
+.ccard-label { font-family: var(--mf); font-size: 0.68rem; color: var(--n300); text-transform: uppercase; letter-spacing: 0.12em; }
+.ccard-val { font-size: 0.88rem; color: var(--white); font-weight: 500; }
+
+/* ──────────────── FOOTER ──────────────── */
+footer {
+    background: var(--n950); padding: 20px 56px;
+}
+footer p { font-family: var(--mf); font-size: 0.72rem; color: var(--n700); }
+
+/* ──────────────── ANIMATIONS ──────────────── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.58s ease, transform 0.58s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.08s; }
+.d2 { transition-delay: 0.17s; }
+.d3 { transition-delay: 0.26s; }
+
+/* ──────────────── RESPONSIVE ──────────────── */
+@media (max-width: 1000px) {
+    :root { --sw: 0px; }
+    .sidebar { display: none; }
+    .main { margin-left: 0; }
+    .sec, .intro, .contact-sec { padding: 52px 24px; }
+    footer { padding: 18px 24px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .skill-cols { grid-template-columns: 1fr 1fr; }
+    .exp-row { grid-template-columns: 1fr; gap: 10px; }
+    .proj-grid { grid-template-columns: 1fr; }
+    .stats-bar { flex-direction: column; }
+    .stat-cell { border-right: none; border-bottom: 1px solid var(--border); }
+    .stat-cell:last-child { border-bottom: none; }
+}
+@media (max-width: 600px) {
+    .skill-cols { grid-template-columns: 1fr; }
+    .intro-h1 { font-size: 2.4rem; }
+}
+</style>
 </head>
 <body>
 
-    <header class="animate">
-        <div class="container">
-            <img src="headshot.jpeg" alt="Matthew Wong" class="profile-img">
-            <h1>Matthew Wong</h1>
-            <p>Paid Media & Data Analytics Specialist</p>
-            <p style="margin-top: 10px; font-size: 1rem; opacity: 0.8;">Bellevue, WA | mjwmatthewwong@gmail.com</p>
+<!-- ────────────── SIDEBAR ────────────── -->
+<aside class="sidebar">
+    <div class="sb-top">
+        <div class="photo-ring">
+            <img id="profile-photo" src="headshot.jpeg" alt="Matthew Wong">
         </div>
-    </header>
+        <div class="sb-name">Matthew Wong</div>
+        <div class="sb-title">Paid Media & Data Analytics<br>Specialist</div>
+    </div>
 
-    <div class="container">
-        <section id="about" class="animate delay-1">
-            <h2>About Me</h2>
-            <p>Hi! I'm Matthew, and I'm a data-driven digital marketer combining expertise in paid media and data analytics. I graduated Magna Cum Laude with a BBA in Marketing and Management Information Systems and a minor in Digital Marketing from Gonzaga University. I specialize in translating complex datasets into actionable insights to drive revenue and scale campaigns efficiently across platforms and strategies.</p>
-        </section>
+    <nav class="sb-nav">
+        <a href="#intro"      class="nav-a on"><span class="nav-pip"></span>Overview</a>
+        <a href="#about"      class="nav-a"><span class="nav-pip"></span>About</a>
+        <a href="#skills"     class="nav-a"><span class="nav-pip"></span>Skills</a>
+        <a href="#experience" class="nav-a"><span class="nav-pip"></span>Experience</a>
+        <a href="#projects"   class="nav-a"><span class="nav-pip"></span>Projects</a>
+        <a href="#leadership" class="nav-a"><span class="nav-pip"></span>Leadership</a>
+        <a href="#contact"    class="nav-a"><span class="nav-pip"></span>Contact</a>
+    </nav>
 
-        <section id="skills" class="animate delay-1">
-            <h2>Core Competencies</h2>
-            <div class="skills-grid">
-                <span class="skill-tag">Google Ads & GA4</span>
-                <span class="skill-tag">Microsoft Ads</span>
-                <span class="skill-tag">Meta Ads</span>
-                <span class="skill-tag">A/B Testing</span>
-                <span class="skill-tag">Budget Pacing</span>
-                <span class="skill-tag">Client-Facing Communication</span>
-                <span class="skill-tag">Tableau & Data Visualization</span>
-                <span class="skill-tag">SQL & Python</span>
-                <span class="skill-tag">HTML</span>
-                <span class="skill-tag">Predictive Modeling</span>
-                <span class="skill-tag">Microsoft Office</span>
+    <div class="sb-bot">
+        <div class="sb-clink">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Bellevue, WA</span>
+        </div>
+        <div class="sb-clink">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:mjwmatthewwong@gmail.com">mjwmatthewwong@gmail.com</a>
+        </div>
+        <div class="sb-clink">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://linkedin.com/in/mjwmatthewwong" target="_blank">linkedin/mjwmatthewwong</a>
+        </div>
+        <div class="sb-clink">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.88-1.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:4257776451">425-777-6451</a>
+        </div>
+        <div class="sb-clink" style="margin-top:4px;">
+            <svg viewBox="0 0 24 24" style="stroke:var(--n400);fill:none;stroke-width:1.5;width:13px;height:13px;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <a href="Matthew_Wong_Resume_2026.pdf" target="_blank">View Résumé (PDF)</a>
+        </div>
+    </div>
+</aside>
+
+<!-- ────────────── MAIN CONTENT ────────────── -->
+<main class="main">
+
+    <!-- Overview -->
+    <div class="intro" id="intro">
+        <div class="intro-tag">Paid Media &amp; Data Analytics Specialist</div>
+        <h1 class="intro-h1">Turning data into<br><em>measurable results.</em></h1>
+        <p class="intro-sub">I'm a digital marketer who bridges analytical rigor and paid media performance — building campaigns that scale efficiently and insights that guide smart decisions.</p>
+        <div class="stats-bar reveal">
+            <div class="stat-cell">
+                <span class="stat-n" data-target="3.83" data-suffix="">0.00</span>
+                <span class="stat-l">GPA / 4.0</span>
             </div>
-        </section>
-
-        <section id="certifications" class="animate delay-2">
-            <h2>Certifications</h2>
-            <div class="skills-grid">
-                <span class="skill-tag">Google Search Ads</span>
-                <span class="skill-tag">Google Shopping Ads</span>
-                <span class="skill-tag">Google Ads Measurement</span>
-                <span class="skill-tag">Google Analytics</span>
-                <span class="skill-tag">Hootsuite Social Media Marketing</span>
-                <span class="skill-tag">Social Listening with Hootsuite</span>
-                <span class="skill-tag">HubSpot Inbound Marketing Certification</span>
+            <div class="stat-cell">
+                <span class="stat-n sm">Magna<br>Cum Laude</span>
+                <span class="stat-l">Academic Distinction</span>
             </div>
-        </section>
+            <div class="stat-cell">
+                <span class="stat-n" data-target="3" data-suffix="+">0+</span>
+                <span class="stat-l">Paid Media Platforms</span>
+            </div>
+            <div class="stat-cell">
+                <span class="stat-n" data-target="5" data-suffix="+">0+</span>
+                <span class="stat-l">Active Client Accounts</span>
+            </div>
+        </div>
+    </div>
 
-        <section id="experience" class="animate delay-3">
-            <h2>Professional Experience</h2>
-            <div class="case-studies" style="grid-template-columns: 1fr;">
-                
-                <div class="case-card">
-                    <h3>Paid Advertising Project Manager</h3>
-                    <h4>Power Digital Marketing | May 2025 – Present</h4>
-                    <ul>
-                        <li><strong>Drove over $500k in revenue at a 9.05x ROAS</strong> for international lifestyle accounts in Q1 by ensuring cross-channel alignment across Search, Performance Max, Demand Gen, and Shopping.</li>
-                        <li><strong>Scaled Q1 revenue +90% YoY</strong> using consolidated campaign structures and strategic budget pacing for a key enterprise client.</li>
-                        <li>Led A/B experiments revealing Broad Match delivered 29% higher revenue and 18% higher ROAS; justified Demand Gen budget expansions by identifying a $5.97 iROAS.</li>
+    <!-- About -->
+    <div class="sec alt" id="about">
+        <span class="ey">About</span>
+        <div class="rule"></div>
+        <div class="about-grid">
+            <div class="about-body reveal">
+                <p>Hi! I'm Matthew. I'm a data-driven digital marketer with deep expertise in paid media strategy and analytics. Currently working as a Paid Advertising Project Manager at Power Digital Marketing, where I oversee 20+ active campaigns across 5+ client accounts spanning lifestyle, fashion, enterprise, and B2B verticals.</p>
+                <p>My approach is grounded in measurement — I run A/B experiments, build attribution models, and conduct layered KPI analyses to find the insights that actually move the needle. Whether I'm structuring a Performance Max campaign or building a predictive classifier in Python, I bring the same precision and curiosity to every problem.</p>
+                <p>I graduated Magna Cum Laude from Gonzaga University with a BBA in Marketing and Management Information Systems, and a minor in Digital Marketing — a combination that gave me both the strategic marketing lens and the technical toolkit to work at this intersection.</p>
+            </div>
+            <div class="reveal d1">
+                <div class="edu-card">
+                    <span class="edu-tag-sm">Education</span>
+                    <div class="edu-uni">Gonzaga University</div>
+                    <div class="edu-deg">BBA in Marketing & MIS · Minor: Digital Marketing</div>
+                    <span class="edu-hon">✦ Magna Cum Laude</span>
+                    <div class="edu-div"></div>
+                    <div class="edu-row"><span class="edu-k">GPA</span><span class="edu-v">3.83 / 4.0</span></div>
+                    <div class="edu-row"><span class="edu-k">Honors</span><span class="edu-v">Dean's List (1×) · President's List (4×)</span></div>
+                    <div class="edu-row"><span class="edu-k">Years</span><span class="edu-v">Aug 2022 – May 2026</span></div>
+                    <div class="edu-row"><span class="edu-k">Clubs</span><span class="edu-v">Fashion Club · Zags Business Tech · NSLS · Intramurals</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="sec" id="skills">
+        <span class="ey">Core Competencies</span>
+        <div class="rule"></div>
+        <h2 class="sh">Skills & Tools</h2>
+        <div class="skill-cols">
+            <div class="skill-col reveal">
+                <h3>Paid Platforms & Campaign Types</h3>
+                <div class="tagset">
+                    <span class="tag">Google Ads</span><span class="tag">GA4</span>
+                    <span class="tag">Microsoft Ads</span><span class="tag">Meta Ads</span>
+                    <span class="tag">YouTube Ads</span><span class="tag">Performance Max</span>
+                    <span class="tag">Demand Gen</span><span class="tag">Shopping Ads</span>
+                </div>
+            </div>
+            <div class="skill-col reveal d1">
+                <h3>Analytics & Data</h3>
+                <div class="tagset">
+                    <span class="tag">SQL</span><span class="tag">Python</span>
+                    <span class="tag">Tableau</span>
+                </div>
+            </div>
+            <div class="skill-col reveal d2">
+                <h3>Software & Operations</h3>
+                <div class="tagset">
+                    <span class="tag">Adobe Photoshop</span><span class="tag">Canva</span>
+                    <span class="tag">Asana</span><span class="tag">Slack</span>
+                    <span class="tag">HTML</span><span class="tag">Microsoft Office</span>
+                </div>
+            </div>
+        </div>
+
+        <span class="cert-sec-label">Certifications</span>
+        <div class="cert-rule"></div>
+        <div class="certs reveal">
+            <div class="cert"><div class="cert-pip"></div><span class="cert-txt">Google Search Ads</span></div>
+            <div class="cert"><div class="cert-pip"></div><span class="cert-txt">Google Shopping Ads</span></div>
+            <div class="cert"><div class="cert-pip"></div><span class="cert-txt">Google Ads Measurement</span></div>
+            <div class="cert"><div class="cert-pip"></div><span class="cert-txt">Google Analytics</span></div>
+            <div class="cert"><div class="cert-pip"></div><span class="cert-txt">Hootsuite Social Media Marketing</span></div>
+            <div class="cert"><div class="cert-pip"></div><span class="cert-txt">Social Listening with Hootsuite</span></div>
+            <div class="cert"><div class="cert-pip"></div><span class="cert-txt">HubSpot Inbound Marketing</span></div>
+        </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="sec alt" id="experience">
+        <span class="ey">Work History</span>
+        <div class="rule"></div>
+        <h2 class="sh">Experience</h2>
+        <div class="exp-items">
+
+            <div class="exp-row reveal">
+                <div>
+                    <span class="exp-when">05/2025 – Present</span>
+                    <div class="exp-co">Power Digital Marketing</div>
+                    <div class="exp-loc">San Diego, CA (Remote)</div>
+                    <span class="curr-badge">Current Role</span>
+                </div>
+                <div>
+                    <div class="exp-role">Paid Advertising Project Manager</div>
+                    <div class="exp-type">Search · Performance Max · Demand Gen · Shopping</div>
+                    <ul class="exp-ul">
+                        <li>Oversee <strong>20+ active Google Ads campaigns</strong> across 5+ client accounts in lifestyle, fashion, enterprise, and B2B — ensuring cross-channel alignment and precise budget pacing.</li>
+                        <li>Conduct weekly, monthly, and quarterly performance analyses using Google Ads & GA4; data-driven recommendations improved <strong>ROAS by up to 75%</strong> and <strong>CTR by 29%</strong> over 6 months.</li>
+                        <li>Justified Demand Gen budget expansion by identifying a <strong>$5.97 iROAS</strong> via growth MMT analysis.</li>
+                        <li>Led A/B experiments proving Broad Match delivered <strong>29% higher revenue</strong> and <strong>18% higher ROAS</strong>.</li>
+                        <li>Drove <strong>$500k+ in Q1 revenue at 9.05x ROAS</strong> for an international lifestyle account through cross-channel campaign alignment; scaled a key enterprise client's Q1 revenue <strong>+90% YoY</strong>.</li>
                     </ul>
+                    <div class="kpis">
+                        <span class="kpi">$500k+ Q1 Revenue</span>
+                        <span class="kpi">9.05x ROAS</span>
+                        <span class="kpi">+90% YoY Growth</span>
+                        <span class="kpi">75% ROAS Lift</span>
+                        <span class="kpi">29% CTR Gain</span>
+                        <span class="kpi">$5.97 iROAS</span>
+                    </div>
                 </div>
+            </div>
 
-                <div class="case-card">
-                    <h3>PPC Intern</h3>
-                    <h4>Power Digital Marketing | Jan 2025 – May 2025</h4>
-                    <ul>
-                        <li>Optimized 5+ Google Ads accounts weekly via keyword audits and campaign restructuring, improving ROAS by an average of 37%.</li>
-                        <li>Contributed to a company-wide capstone project, executing a full-scale cross-departmental marketing plan using Search, Demand Gen, and Performance Max.</li>
+            <div class="exp-row reveal d1">
+                <div>
+                    <span class="exp-when">01/2025 – 05/2025</span>
+                    <div class="exp-co">Power Digital Marketing</div>
+                    <div class="exp-loc">San Diego, CA (Remote)</div>
+                </div>
+                <div>
+                    <div class="exp-role">PPC Intern</div>
+                    <div class="exp-type">Google Ads · Keyword Optimization · Ad Copy</div>
+                    <ul class="exp-ul">
+                        <li>Optimized <strong>5+ Google Ads accounts weekly</strong> via KPI analysis, keyword audits, ad copy creation, and campaign restructuring — improving ROAS by an average of <strong>37%</strong>.</li>
+                        <li>Contributed to the company-wide capstone: a full-scale cross-departmental marketing plan executed across Search, Demand Gen, and Performance Max campaign types.</li>
                     </ul>
+                    <div class="kpis">
+                        <span class="kpi">37% Avg ROAS Lift</span>
+                        <span class="kpi">5+ Accounts / Week</span>
+                    </div>
                 </div>
-
             </div>
-        </section>
 
-        <section id="portfolio" class="animate delay-4">
-            <h2>Technical Projects & Case Studies</h2>
-            <div class="case-studies">
-                
-                <div class="case-card">
-                    <h3>Predictive Modeling for Marketing</h3>
-                    <p>Built and compared classification models (Decision Trees, Neural Networks, and Logistic Regression) to predict membership conversions. Recommended actions to target buyers and boost sales revenue using data-driven insights.</p>
-                    <a href="https://colab.research.google.com/drive/1DGjISpAYv8NbGLNle75Cp5wVAoq9kiJC" target="_blank" class="btn">View Notebook</a>
-                </div>
+        </div>
+    </div>
 
-                <div class="case-card">
-                    <h3>Barcelona Tourism Trends Analysis</h3>
-                    <p>Analyzed tourism data to identify seasonal peaks, demographic trends, and spending behavior. Formulated actionable marketing and policy recommendations based on findings.</p>
-                    <a href="https://colab.research.google.com/drive/1gA9wfSSWrfaKnFTv7k7BEkDldtfquIbH" target="_blank" class="btn">View Notebook</a>
-                </div>
-
-                <div class="case-card">
-                    <h3>AI Job Hunter</h3>
-                    <p>Developed and deployed an interactive AI-powered application to streamline job hunting and resume adjustments.</p>
-                    <a href="https://huggingface.co/spaces/mjwmatthewwong/ai-job-hunter" target="_blank" class="btn">View App</a>
-                </div>
-
-                <div class="case-card">
-                    <h3>Malloy Data Analysis</h3>
-                    <p>A technical data analysis project utilizing Malloy to structure, query, and derive insights from Washington State political compensation data efficiently.</p>
-                    <a href="https://github.com/wongjmatthew/malloy-project-1" target="_blank" class="btn">View Code</a>
-                </div>
-
+    <!-- Projects -->
+    <div class="sec" id="projects">
+        <span class="ey">Technical Work</span>
+        <div class="rule"></div>
+        <h2 class="sh">Projects</h2>
+        <div class="proj-grid">
+            <div class="proj-card reveal">
+                <div class="proj-num">01</div>
+                <h3>Predictive Modeling for Marketing</h3>
+                <p>Built and compared classification models — Decision Trees, Neural Networks, and Logistic Regression — to predict membership conversions and recommend data-driven targeting actions to boost revenue.</p>
+                <a href="https://colab.research.google.com/drive/1DGjISpAYv8NbGLNle75Cp5wVAoq9kiJC" target="_blank" class="proj-link">View Notebook</a>
             </div>
-        </section>
-
-        <section id="contact" class="animate delay-4" style="text-align: center;">
-            <h2>Let's Connect!</h2>
-            <p>Looking for a data-driven paid media professional to drive your next phase of growth? Let's talk.</p>
-            <div class="contact-links">
-                <a href="mailto:mjwmatthewwong@gmail.com" class="btn">Email Me!</a> 
-                <a href="https://www.linkedin.com/in/mjwmatthewwong" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
-                <a href="https://github.com/wongjmatthew" target="_blank" class="btn btn-outline">Github Profile</a>
+            <div class="proj-card reveal d1">
+                <div class="proj-num">02</div>
+                <h3>Barcelona Tourism Trends Analysis</h3>
+                <p>Analyzed tourism data to uncover seasonal peaks, demographic trends, and spending behavior — translating findings into actionable marketing and policy recommendations.</p>
+                <a href="https://colab.research.google.com/drive/1gA9wfSSWrfaKnFTv7k7BEkDldtfquIbH" target="_blank" class="proj-link">View Notebook</a>
             </div>
-        </section>
+            <div class="proj-card reveal d1">
+                <div class="proj-num">03</div>
+                <h3>AI Job Hunter</h3>
+                <p>Developed and deployed an interactive AI-powered application to streamline job hunting and resume tailoring — making the process faster, more targeted, and easier to iterate on.</p>
+                <a href="https://huggingface.co/spaces/mjwmatthewwong/ai-job-hunter" target="_blank" class="proj-link">View App</a>
+            </div>
+            <div class="proj-card reveal d2">
+                <div class="proj-num">04</div>
+                <h3>Malloy Data Analysis</h3>
+                <p>A technical data project using Malloy to structure, query, and extract insights from Washington State political compensation data — demonstrating fluency with modern data tooling.</p>
+                <a href="https://github.com/wongjmatthew/malloy-project-1" target="_blank" class="proj-link">View on GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leadership -->
+    <div class="sec alt" id="leadership">
+        <span class="ey">Beyond Work</span>
+        <div class="rule"></div>
+        <h2 class="sh">Leadership</h2>
+        <div class="lead-card reveal">
+            <div class="lead-ico">🎸</div>
+            <div>
+                <div class="lead-role">Bassist &amp; Vocalist</div>
+                <div class="lead-org">Independent Band "Brainrot" · Jul 2023 – Present · Bellevue, WA</div>
+                <div class="lead-desc">Organized and managed a cohesive music group — recruiting a drummer, lead singer, and lead guitarist — fostering a collaborative creative environment for songwriting and live performance.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-sec" id="contact">
+        <span class="ey">Get in Touch</span>
+        <div class="rule"></div>
+        <h2 class="sh">Let's connect.</h2>
+        <p class="contact-intro">Whether you're looking for a paid media specialist, want to talk data strategy, or just want to connect — I'd love to hear from you.</p>
+        <div class="contact-cards reveal">
+            <a href="mailto:mjwmatthewwong@gmail.com" class="ccard">
+                <span class="ccard-label">Email</span>
+                <span class="ccard-val">mjwmatthewwong@gmail.com</span>
+            </a>
+            <a href="https://linkedin.com/in/mjwmatthewwong" target="_blank" class="ccard">
+                <span class="ccard-label">LinkedIn</span>
+                <span class="ccard-val">mjwmatthewwong</span>
+            </a>
+            <a href="tel:4257776451" class="ccard">
+                <span class="ccard-label">Phone</span>
+                <span class="ccard-val">425-777-6451</span>
+            </a>
+            <a href="Matthew_Wong_Resume.pdf" target="_blank" class="ccard">
+                <span class="ccard-label">Résumé</span>
+                <span class="ccard-val">Download PDF →</span>
+            </a>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Matthew Wong. All rights reserved.</p>
+        <p>© 2026 Matthew Wong · Paid Media &amp; Data Analytics Specialist</p>
     </footer>
+</main>
 
+<script>
+(function () {
+    /* ── Stat counters ── */
+    function ease(t) { return 1 - Math.pow(1 - t, 3); }
+    function runCount(el) {
+        var target = parseFloat(el.dataset.target);
+        var pre = el.dataset.prefix || '';
+        var suf = el.dataset.suffix || '';
+        var isF = target % 1 !== 0;
+        var dur = 1600; var start = null;
+        (function tick(ts) {
+            if (!start) start = ts;
+            var p = Math.min((ts - start) / dur, 1);
+            el.textContent = pre + (isF ? (target * ease(p)).toFixed(2) : Math.round(target * ease(p))) + suf;
+            if (p < 1) requestAnimationFrame(tick);
+        })(performance.now());
+    }
+
+    /* ── Scroll reveals ── */
+    var counted = false;
+    var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+    }, { threshold: 0.11 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+    /* Trigger counters when stats bar enters view */
+    var statsBar = document.querySelector('.stats-bar');
+    if (statsBar) {
+        var io2 = new IntersectionObserver(function (es) {
+            es.forEach(function (e) {
+                if (e.isIntersecting && !counted) {
+                    counted = true;
+                    setTimeout(function () { document.querySelectorAll('[data-target]').forEach(runCount); }, 250);
+                    io2.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+        io2.observe(statsBar);
+    }
+
+    /* ── Active nav highlighting ── */
+    var navLinks = document.querySelectorAll('.nav-a');
+    var sectionIds = ['intro','about','skills','experience','projects','leadership','contact'];
+    var secEls = sectionIds.map(function(id){ return document.getElementById(id); }).filter(Boolean);
+    var navObs = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+            if (e.isIntersecting) {
+                navLinks.forEach(function (a) { a.classList.remove('on'); });
+                var match = document.querySelector('.nav-a[href="#' + e.target.id + '"]');
+                if (match) match.classList.add('on');
+            }
+        });
+    }, { threshold: 0.35 });
+    secEls.forEach(function (s) { navObs.observe(s); });
+}());
+</script>
 </body>
 </html>
